@@ -8,7 +8,7 @@
 
 - HTML
 - CSS
-- object oriented Vanilla JS
+- object oriented JavaScript (ES6)
 
 
 
