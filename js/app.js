@@ -1,87 +1,3 @@
-// const regionsData = [
-//     {
-//         id: "PL-DS",
-//         name: "dolnośląskie",
-//         enName: "Lower Silesia"
-//     },
-//     {
-//         id: "PL-KP",
-//         name: "kujawsko-pomorskie",
-//         enName: "Kuyavia-Pomerania"
-//     },
-//     {
-//         id: "PL-LD",
-//         name: "łódzkie",
-//         enName: "Łódź"
-//     },
-//     {
-//         id: "PL-LU",
-//         name: "lubelskie",
-//         enName: "Lublin"
-//     },
-//     {
-//         id: "PL-LB",
-//         name: "lubuskie",
-//         enName: "Lubusz"
-//     },
-//     {
-//         id: "PL-MA",
-//         name: "małopolskie",
-//         enName: "Lesser Poland"
-//     },
-//     {
-//         id: "PL-MZ",
-//         name: "mazowieckie",
-//         enName: "Masovia"
-//     },
-//     {
-//         id: "PL-OP",
-//         name: "opolskie",
-//         enName: "Opole"
-//     },
-//     {
-//         id: "PL-PK",
-//         name: "podkarpackie",
-//         enName: "Subcarpathia"
-//     },
-//     {
-//         id: "PL-PD",
-//         name: "podlaskie",
-//         enName: "Podlaskie"
-//     },
-//     {
-//         id: "PL-PM",
-//         name: "pomorskie",
-//         enName: "Pomerania"
-//     },
-//     {
-//         id: "PL-SL",
-//         name: "śląskie",
-//         enName: "Silesia"
-//     },
-//     {
-//         id: "PL-SK",
-//         name: "świętokrzyskie",
-//         enName: "Holy Cross Province"
-//     },
-//     {
-//         id: "PL-WM",
-//         name: "warmińsko-mazurskie",
-//         enName: "Warmia-Masuria"
-//     },
-//     {
-//         id: "PL-WP",
-//         name: "wielkopolskie",
-//         enName: "Greater Poland"
-//     },
-//     {
-//         id: "PL-ZP",
-//         name: "zachodniopomorskie",
-//         enName: "West Pomerania"
-//     }
-// ];
-
-
 const regionsDataObj = {
     ds: {
         name: "dolnośląskie",
@@ -149,9 +65,10 @@ const regionsDataObj = {
     }
 };
 
-const regionsIDs = ["PL-DS", "PL-KP", "PL-LD", "PL-LU", "PL-LB", "PL-MA", "PL-MZ", "PL-OP", "PL-PK", "PL-PD", "PL-PM", "PL-SL", "PL-SK", "PL-WM", "PL-WP", "PL-ZP"];
-const regionName = document.querySelector('.regionName');
-const regionEnName = document.querySelector('.regionEnName');
+
+const regionsIDs = ["pl-ds", "pl-kp", "pl-ld", "pl-lu", "pl-lb", "pl-ma", "pl-mz", "pl-op", "pl-pk", "pl-pd", "pl-pm", "pl-sl", "pl-sk", "pl-wm", "pl-wp", "pl-zp"];
+
+const defaultActiveRegion = "pl-mz";
 
 
 class Region {
@@ -161,22 +78,18 @@ class Region {
     }
 
     printData() {
-        // const regionName = document.querySelector('.regionName');
-        // const regionEnName = document.querySelector('.regionEnName');
-            regionName.innerHTML = regionsDataObj[this.id.slice(3).toLowerCase()].name;
-            regionEnName.innerHTML = regionsDataObj[this.id.slice(3).toLowerCase()].enName;
+        const regionName = document.querySelector('.regionName');
+        const regionEnName = document.querySelector('.regionEnName');
 
-        // this.inDOM.addEventListener('click', function () {
-        //     regionName.innerHTML = regionsDataObj[this.id.slice(3).toLowerCase()].name;
-        //     regionEnName.innerHTML = regionsDataObj[this.id.slice(3).toLowerCase()].enName;
-        // });
+        regionName.innerHTML = regionsDataObj[this.id.slice(3)].name;
+        regionEnName.innerHTML = regionsDataObj[this.id.slice(3)].enName;
     }
 
     changeBackground() {
         const regions = document.querySelectorAll('path');
-        regions.forEach(el => el.classList.remove('active'));
+        regions.forEach(el => el.classList.remove('path--active'));
 
-        this.inDOM.classList.add('active');
+        this.inDOM.classList.add('path--active');
     }
 
     updateData() {
@@ -184,22 +97,24 @@ class Region {
         this.inDOM.addEventListener('click', () => this.changeBackground());
     }
 
-
-
-    // printData() {
-    //     regionName.innerHTML = regionsDataObj[this.id.slice(3).toLowerCase()].name;
-    //     regionEnName.innerHTML = regionsDataObj[this.id.slice(3).toLowerCase()].enName;
-    // }
-    //
-    // updateData() {
-    //     this.inDOM.addEventListener('click', () => this.printData());
-    // }
 }
 
 
 const regionsObjects = regionsIDs.map(id => new Region(id));
-regionsObjects[0].printData();
-regionsObjects[0].changeBackground();
+// regionsObjects[0].printData();
+// regionsObjects[0].changeBackground();
+
+
+regionsObjects.forEach((el,i) => {
+    el.id === defaultActiveRegion ?
+        (regionsObjects[i].printData()) :
+        null;
+
+    el.id === defaultActiveRegion ?
+        (regionsObjects[i].changeBackground()) :
+        null;
+});
+
 regionsObjects.forEach(el => el.updateData());
 
 
