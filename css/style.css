@@ -1,40 +1,74 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.map {
+.container {
     padding: 3% 7%;
-    display: flex;
 }
 
-.map-box {
-    width: 50%;
-    border: 1px solid red;
-}
-
-path[id*="pl-"] {
-    transition: 0.3s all;
-}
-
-path[id*="pl-"]:hover {
-    fill: pink;
-}
-
-path.path--active {
-    fill: pink;
-}
-
-.info-box {
+.map {
     padding: 5% 7%;
-}
-
-.regionName, .regionEnName {
+    display: flex;
+    flex-wrap: wrap;
     animation: fadeIn 0.5s ease-in-out;
 }
 
+.map-heading {
+    padding: 10px;
+    font-size: 3rem;
+}
 
+.map-heading, .map-subtitle {
+    text-align: center;
+    font-weight: 400;
+}
+
+.map-subtitle {
+    font-size: 0.8rem;
+}
+
+.box {
+    width: 50%;
+}
+
+.land[id*="pl-"] {
+    transition: 0.3s all;
+}
+
+.land[id*="pl-"]:hover {
+    fill: #5b5ba3;
+}
+
+.land.path--active {
+    fill: #5b5ba3;
+}
+
+.info-box {
+    padding: 5% 10%;
+}
+
+.info-box__heading, .region-name, .region-en-name {
+    font-weight: 400;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.info-box__heading {
+    font-size: 1rem;
+}
+
+.region-name {
+    font-size: 2rem;
+}
+
+.region-en-name {
+    font-size: 1.2rem;
+}
 
 @keyframes fadeIn {
     from {
@@ -42,5 +76,32 @@ path.path--active {
     }
     to {
         opacity: 1;
+    }
+}
+
+
+/* Media Queries */
+
+@media (max-width: 1000px) {
+    .map-heading {
+        font-size: 2.5rem;
+    }
+
+    .info-box__heading {
+        font-size: 0.8rem;
+    }
+
+    .region-name {
+        font-size: 2rem;
+    }
+
+    .region-en-name {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .box {
+        width: 100%;
     }
 }

@@ -1,69 +1,4 @@
-const regionsDataObj = {
-    ds: {
-        name: "dolnośląskie",
-        enName: "Lower Silesia"
-    },
-    kp: {
-        name: "kujawsko-pomorskie",
-        enName: "Kuyavia-Pomerania"
-    },
-    ld: {
-        name: "łódzkie",
-        enName: "Łódź"
-    },
-    lu: {
-        name: "lubelskie",
-        enName: "Lublin"
-    },
-    lb: {
-        name: "lubuskie",
-        enName: "Lubusz"
-    },
-    ma: {
-        name: "małopolskie",
-        enName: "Lesser Poland"
-    },
-    mz: {
-        name: "mazowieckie",
-        enName: "Masovia"
-    },
-    op: {
-        name: "opolskie",
-        enName: "Opole"
-    },
-    pk: {
-        name: "podkarpackie",
-        enName: "Subcarpathia"
-    },
-    pd: {
-        name: "podlaskie",
-        enName: "Podlaskie"
-    },
-    pm: {
-        name: "pomorskie",
-        enName: "Pomerania"
-    },
-    sl: {
-        name: "śląskie",
-        enName: "Silesia"
-    },
-    sk: {
-        name: "świętokrzyskie",
-        enName: "Holy Cross Province"
-    },
-    wm: {
-        name: "warmińsko-mazurskie",
-        enName: "Warmia-Masuria"
-    },
-    wp: {
-        name: "wielkopolskie",
-        enName: "Greater Poland"
-    },
-    zp: {
-        name: "zachodniopomorskie",
-        enName: "West Pomerania"
-    }
-};
+import {regionsDataObj} from '../data/regions';
 
 
 const regionsIDs = ["pl-ds", "pl-kp", "pl-ld", "pl-lu", "pl-lb", "pl-ma", "pl-mz", "pl-op", "pl-pk", "pl-pd", "pl-pm", "pl-sl", "pl-sk", "pl-wm", "pl-wp", "pl-zp"];
@@ -78,8 +13,8 @@ class Region {
     }
 
     printData() {
-        const regionName = document.querySelector('.regionName');
-        const regionEnName = document.querySelector('.regionEnName');
+        const regionName = document.querySelector('.region-name');
+        const regionEnName = document.querySelector('.region-en-name');
 
         regionName.innerHTML = regionsDataObj[this.id.slice(3)].name;
         regionEnName.innerHTML = regionsDataObj[this.id.slice(3)].enName;
@@ -100,11 +35,10 @@ class Region {
 }
 
 
+//Initialize regions
 const regionsObjects = regionsIDs.map(id => new Region(id));
-// regionsObjects[0].printData();
-// regionsObjects[0].changeBackground();
 
-
+//Default region
 regionsObjects.forEach((el,i) => {
     el.id === defaultActiveRegion ?
         (regionsObjects[i].printData()) :
@@ -115,6 +49,7 @@ regionsObjects.forEach((el,i) => {
         null;
 });
 
+//Switching regions
 regionsObjects.forEach(el => el.updateData());
 
 
