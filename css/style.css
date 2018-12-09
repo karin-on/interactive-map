@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.map {
+    padding: 3% 7%;
+}
+
+.map-box {
+    width: 50%;
+    border: 1px solid red;
+}
+
+path[id*="PL-"]:hover {
+    fill: pink;
+}
+
+path.active {
+    fill: pink;
+}
+
+
+
+@media (max-width: 1000px) {
+    .map-box {
+        border-color: blue;
+    }
+}
