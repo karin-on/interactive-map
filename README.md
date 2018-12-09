@@ -1,14 +1,32 @@
-# Interactive Map of Poland
+# Interactive Map of Poland 
 
-———————   work in progress   ——————— 
+This is Poland's administrative map in SVG. By clicking on voivodeships you can change data displayed next to the map. 
+
+
+
+## Getting Started
+
+To run this project you need to have **Node.js** and **Webpack** installed on your local machine. After forking and cloning the repo please run these commands in your command line:
+
+```
+npm install
+```
+
+and
+
+```
+npm start
+```
+
+Then open the **.html** file in your browser.
 
 
 
 ## Tools
 
-- HTML
-- CSS
 - object oriented JavaScript (ES6)
+- CSS
+- Webpack
 
 
 
