@@ -42,6 +42,15 @@ body {
     width: 50%;
 }
 
+.land {
+    fill: #cccccc;
+    fill-opacity: 1;
+    stroke: #ffffff;
+    stroke-opacity: 1;
+    stroke-width: 0.5;
+    cursor: pointer;
+}
+
 .land[id*="pl-"] {
     transition: 0.3s all;
 }
@@ -60,7 +69,6 @@ body {
 
 .info-box__heading, .region-name, .region-en-name {
     font-weight: 400;
-    animation: fadeIn 0.5s ease-in-out;
 }
 
 .info-box__heading {
@@ -73,15 +81,6 @@ body {
 
 .region-en-name {
     font-size: 1.2rem;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 

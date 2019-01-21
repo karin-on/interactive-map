@@ -1,14 +1,14 @@
 var path = require('path');
 
 module.exports = {
-    entry: "./js/app.js",       //ten plik jest wczytywany
+    entry: "./js/app.js",
     output: {
-        filename: "out.js",     //tutaj output
-        path: path.resolve(__dirname, 'js')     //ścieżka do pliku out
+        filename: "out.js",
+        path: path.resolve(__dirname, 'js')
     },
-    mode: 'development',    //lub wersja produkcyjna: 'production'
+    mode: 'development',
     watch: true,
-    devtool: 'inline-source-map',       //NIE: 'source-map', source-map tworzy plik out.map.js
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -27,8 +27,6 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                // use: ['style-loader', 'css-loader', 'sass-loader']      //tu przed css i sass chcemy też sourceMap
-                //skopiować z githuba Damiana w warsztacie
                 use: [
                     'style-loader',
                     {loader: 'css-loader', options: {sourceMap: true}},
