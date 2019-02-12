@@ -6,10 +6,10 @@ This is Poland's administrative map in SVG. By clicking on voivodeships you can 
 
 ## Getting Started
 
-To run this project you need to have **Node.js** and **Webpack** installed on your local machine. After forking and cloning the repo please run these commands in your command line:
+To run this project you need to have **Node.js** installed on your local machine. After forking and cloning the repo please run these commands in your command line:
 
 ```
-npm install
+npm i
 ```
 
 and
@@ -18,7 +18,7 @@ and
 npm start
 ```
 
-Then open the **.html** file in your browser.
+Then open the **index.html** file in your browser.
 
 
 
